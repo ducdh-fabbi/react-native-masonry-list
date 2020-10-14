@@ -606,7 +606,7 @@ export default class MasonryList extends React.PureComponent {
 					flexDirection: "row",
 					width: "100%"
 				}, this.props.listContainerStyle]}
-				removeClippedSubviews={true}
+				removeClippedSubviews={false}
 				onEndReachedThreshold={this.props.onEndReachedThreshold}
 				refreshing={this.props.refreshing}
 				onRefresh={this.props.onRefresh}

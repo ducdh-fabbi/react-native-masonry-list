@@ -108,7 +108,7 @@ export default class Column extends React.PureComponent {
 					return this._keyExtractor(item, index, this.props.colIndex);
 				}}
 				initialNumToRender={this.props.initialNumInColsToRender}
-				removeClippedSubviews={true}
+				removeClippedSubviews={false}
 				renderItem={this._renderItem}
 			/>
 		);
