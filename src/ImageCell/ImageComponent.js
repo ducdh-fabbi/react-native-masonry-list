@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import FastImage from 'react-native-fast-image'
 import PropTypes from "prop-types";
 import Injector from "./Injector";
 
@@ -41,7 +41,7 @@ export default class ImageComponent extends React.PureComponent {
 
 		return (
 			<Injector
-				defaultComponent={Image}
+				defaultComponent={FastImage}
 				defaultProps={imageProps}
 				injectant={customImageComponent}
 				injectantProps={customImageProps}
