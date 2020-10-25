@@ -77,9 +77,8 @@ export function insertIntoColumn (resolvedImage, dataSet, sorted) {
 
 	if (column) {
 		let images = [...column, resolvedImage];
-		if (sorted) {
-			images = images.sort((a, b) => (a.index < b.index) ? -1 : 1);
-		}
+		// Fix: always sort by order for Illumy project
+		images = images.sort((a, b) => (a.order < b.order) ? -1 : 1);
 		dataCopy[columnIndex] = images;
 	} else {
 		dataCopy = [...dataCopy, [resolvedImage]];
