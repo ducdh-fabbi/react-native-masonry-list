@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, InteractionManager } from "react-native";
+import { FlatList, InteractionManager, View } from "react-native";
 import PropTypes from "prop-types";
 
 import { resolveImage, resolveLocal } from "./lib/model";
@@ -623,27 +623,29 @@ export default class MasonryList extends React.PureComponent {
 				data={this.state._sortedData}
 				renderItem={({ item, index }) => {
 					return (
-						<Column
-							data={item}
-							itemSource={this.props.itemSource}
-							initialNumInColsToRender={this.props.initialNumInColsToRender}
-							layoutDimensions={this.props.layoutDimensions}
-							backgroundColor={this.props.backgroundColor}
-							imageContainerStyle={this.props.imageContainerStyle}
-							spacing={this.props.spacing}
-							key={`MASONRY-COLUMN-${index}`}
-							colIndex={index}
+						<View style={{zIndex: this.state._sortedData.length - index}}>
+							<Column
+								data={item}
+								itemSource={this.props.itemSource}
+								initialNumInColsToRender={this.props.initialNumInColsToRender}
+								layoutDimensions={this.props.layoutDimensions}
+								backgroundColor={this.props.backgroundColor}
+								imageContainerStyle={this.props.imageContainerStyle}
+								spacing={this.props.spacing}
+								key={`MASONRY-COLUMN-${index}`}
+								colIndex={index}
 
-							customImageComponent={this.props.customImageComponent}
-							customImageProps={this.props.customImageProps}
-							completeCustomComponent={this.props.completeCustomComponent}
+								customImageComponent={this.props.customImageComponent}
+								customImageProps={this.props.customImageProps}
+								completeCustomComponent={this.props.completeCustomComponent}
 
-							onPressImage={this.props.onPressImage}
-							onLongPressImage={this.props.onLongPressImage}
+								onPressImage={this.props.onPressImage}
+								onLongPressImage={this.props.onLongPressImage}
 
-							renderIndividualHeader={this.props.renderIndividualHeader}
-							renderIndividualFooter={this.props.renderIndividualFooter}
-						/>
+								renderIndividualHeader={this.props.renderIndividualHeader}
+								renderIndividualFooter={this.props.renderIndividualFooter}
+							/>
+						</View>
 					);
 				}}
 			/>
